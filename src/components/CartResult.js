@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CardItem from './CartItem';
 
 class CardResult extends Component {
    render() {

@@ -31,7 +31,12 @@ class Product extends Component {
                   <div className="card-footer">
                      <span className="left">{product.price}$</span>
                      <span className="right">
-                        <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart">
+                        <a
+                           className="btn-floating blue-gradient"
+                           data-toggle="tooltip" data-placement="top"
+                           title="" data-original-title="Add to Cart"
+                           onClick = {() => this.onAddToCard(product)}
+                        >
                            <i className="fa fa-shopping-cart"></i>
                         </a>
                      </span>
@@ -42,13 +47,17 @@ class Product extends Component {
       );
    }
 
+   onAddToCard = (product) => {
+      this.props.onAddToCard(product);
+   }
+
    showRating(rating) {
       var result = [];
       for (var i = 1; i <= rating; i++) {
-         result.push(<i key = {Math.random().toString(36).substr(2, 9)} className="fa fa-star"></i>);
+         result.push(<i key={Math.random().toString(36).substr(2, 9)} className="fa fa-star"></i>);
       }
-      for (var j = 1; j <= 5-rating; j++) {
-         result.push(<i key ={Math.random().toString(36).substr(2, 9)} className="fa fa-star-o"></i>);
+      for (var j = 1; j <= 5 - rating; j++) {
+         result.push(<i key={Math.random().toString(36).substr(2, 9)} className="fa fa-star-o"></i>);
       }
       return result;
    }

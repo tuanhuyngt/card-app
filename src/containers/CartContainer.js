@@ -5,7 +5,6 @@ import Cart from './../components/Cart';
 import * as messages from './../constants/Message';
 import CartItem from '../components/CartItem';
 import CartResult from './../components/CartResult';
-import cart from '../reducers/cart';
 
 
 class CartContainer extends Component {
@@ -36,8 +35,8 @@ class CartContainer extends Component {
    }
    showTotalAmount = (cart) => {
       var result = null;
-      if (cart.length>0) {
-         result = <CartResult cart = {cart}/>
+      if (cart.length > 0) {
+         result = <CartResult cart={cart} />
       }
       return result
    }
