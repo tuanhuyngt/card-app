@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-
+import * as messages from './../constants/Message';
 class Product extends Component {
    render() {
       var { product } = this.props;
@@ -49,6 +49,7 @@ class Product extends Component {
 
    onAddToCard = (product) => {
       this.props.onAddToCard(product);
+      this.props.onChangeMessage(messages.MSG_ADD_TO_CART_SUCCESS)
    }
 
    showRating(rating) {

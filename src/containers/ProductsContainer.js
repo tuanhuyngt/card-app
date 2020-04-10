@@ -18,13 +18,14 @@ class ProductsContainer extends Component {
 
    showProducts(products) {
     var result = null;
-    var {onAddToCard} = this.props;
+    var {onAddToCard, onChangeMessage} = this.props;
     if (products.length > 0) {
        result = products.map((product, index) => {
           return <Product 
             key = {index} 
             product = {product}
             onAddToCard = {onAddToCard}
+            onChangeMessage = {onChangeMessage}
             />
        });
     }
@@ -42,7 +43,8 @@ ProductsContainer.propTypes = {
             price : PropTypes.number.isRequired,
             rating : PropTypes.number.isRequired,
         })
-    ).isRequired
+    ).isRequired,
+    onChangeMessage : PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -53,7 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, props) => {
    return {
-      onAddToCard : (product) => dispatch(actions.actAddToCart(product,1))
+      onAddToCard : (product) => dispatch(actions.actAddToCart(product,1)),
+      onChangeMessage : (message) => dispatch(actions.actChangeMessage(message))
    }
 }
 

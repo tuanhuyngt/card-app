@@ -19,7 +19,9 @@ class CartContainer extends Component {
    }
 
    showCartItem = (cart) => {
-      var result = messages.MSG_CART_EMPTY;
+      var result = <tr><td>
+         {messages.MSG_CART_EMPTY}
+         </td></tr>;
       if (cart.length > 0) {
          result = cart.map((item, index) => {
             return (
